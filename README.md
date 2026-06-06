@@ -41,10 +41,10 @@ The app features a stunning dynamic palette (Material You) with custom themes:
 
 Before setting up the project, ensure you have the following installed on your system:
 
+- **Java 17**
 - **Flutter SDK**
 - **Android SDK Tools** (via Android Studio)
 - **Windows SDK Tools** (C++ development only, via Visual Studio Community)
-- **Java 17**
 - **Visual Studio Code** (VS Code)
 
 ## 🚀 Getting Started for Contributors
