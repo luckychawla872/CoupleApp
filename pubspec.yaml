@@ -1,0 +1,54 @@
+name: Couple
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.8.0
+  flutter_dotenv: ^5.1.0
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
+  google_fonts: ^6.2.1
+  crypto: ^3.0.3
+  intl: ^0.19.0
+  cryptography: ^2.7.0
+  bip39: ^1.0.6
+  flutter_secure_storage: ^9.0.0
+  path_provider: ^2.1.2
+  file_picker: ^11.0.2
+  http: ^1.2.0
+  cached_network_image: ^3.4.1
+  local_auth: ^3.0.1
+  device_info_plus: ^12.4.0
+  url_launcher: ^6.3.2
+  pdf: ^3.12.0
+  share_plus: ^12.0.2
+  printing: ^5.14.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/icon.png
+    - assets/chat_bg.png
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/icon.png"

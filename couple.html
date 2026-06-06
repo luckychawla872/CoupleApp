@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple App: M3 Architecture & Strategic Potential Showcase</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* M3 Color Tokens (Material You Warm Romantic Palette) */
+            --md-sys-color-primary: #ffb1c8;
+            --md-sys-color-on-primary: #66002d;
+            --md-sys-color-primary-container: #8d0043;
+            --md-sys-color-on-primary-container: #ffd9e2;
+
+            --md-sys-color-secondary-container: #514346;
+            --md-sys-color-on-secondary-container: #ffd9e2;
+
+            --md-sys-color-background: #1c1a1d;
+            --md-sys-color-surface: #252226;
+            --md-sys-color-surface-variant: #413a3d;
+            --md-sys-color-on-surface-variant: #c3b4b8;
+            --md-sys-color-outline: #8c7f83;
+
+            --accent-gold: #f59e0b;
+            --accent-green: #34d399;
+
+            --font-display: 'Outfit', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--md-sys-color-background);
+            color: #f6f0f2;
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Immersive Interactive Canvas Background */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--md-sys-color-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.03);
+        }
+
+        .logo span {
+            color: #ff3e6c;
+        }
+
+        .badge-status {
+            background: var(--md-sys-color-primary-container);
+            border: 1px solid var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4.5rem 0 3rem;
+            text-align: center;
+        }
+
+        .hero-tag {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+        }
+
+        .hero h1 span {
+            color: var(--md-sys-color-primary);
+            text-shadow: 0 0 30px rgba(255, 177, 200, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--md-sys-color-on-surface-variant);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* The Three WHYs Section */
+        .whys-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 768px) {
+            .whys-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .why-card {
+            background: linear-gradient(135deg, rgba(255, 177, 200, 0.03) 0%, rgba(141, 0, 67, 0.03) 100%);
+            border: 1px solid rgba(255, 177, 200, 0.1);
+            border-radius: 24px;
+            padding: 2.25rem;
+            backdrop-filter: blur(20px);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 12px 30px rgba(255, 177, 200, 0.15);
+            background: linear-gradient(135deg, rgba(255, 177, 200, 0.06) 0%, rgba(141, 0, 67, 0.06) 100%);
+        }
+
+        .why-num {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--md-sys-color-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+        }
+
+        .why-card p {
+            font-size: 0.9rem;
+            color: var(--md-sys-color-on-surface-variant);
+            line-height: 1.5;
+        }
+
+        /* Interactive Showcase Grid */
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .interactive-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+        }
+
+        /* Material 3 Card Styles */
+        .sim-card {
+            background: rgba(37, 34, 38, 0.7);
+            border: 1px solid var(--border-card);
+            border-radius: 28px;
+            padding: 2.25rem;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .sim-card:hover {
+            border-color: rgba(255, 177, 200, 0.2);
+        }
+
+        .sim-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 1rem;
+        }
+
+        .sim-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--md-sys-color-primary-container);
+            border: 1px solid var(--md-sys-color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--md-sys-color-primary);
+            font-size: 1.25rem;
+        }
+
+        .sim-title h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: #ffffff;
+        }
+
+        .sim-title p {
+            font-size: 0.8rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        /* Material Design 3 Custom Chat Frame */
+        .phone-frame {
+            background: #171518;
+            border: 6px solid var(--md-sys-color-surface-variant);
+            border-radius: 28px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            height: 380px;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            margin-bottom: 0.75rem;
+        }
+
+        .phone-user {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .phone-avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            /* M3 squircle avatar style */
+            background: linear-gradient(135deg, var(--md-sys-color-primary), #ff6b8b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+            color: var(--md-sys-color-on-primary);
+        }
+
+        .phone-info h4 {
+            font-size: 0.85rem;
+            color: #ffffff;
+            font-family: var(--font-display);
+        }
+
+        .phone-info p {
+            font-size: 0.7rem;
+            color: var(--md-sys-color-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .phone-messages {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-right: 0.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .phone-messages::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .phone-messages::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+        }
+
+        /* Material You Bubble with Asymmetric Corners */
+        .msg-bubble {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            border-radius: 20px 20px 4px 20px;
+            /* Sharp bottom-right */
+            max-width: 80%;
+            align-self: flex-end;
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            box-shadow: 0 4px 10px rgba(141, 0, 67, 0.15);
+            animation: scaleIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 177, 200, 0.1);
+        }
+
+        .msg-bubble.incoming {
+            align-self: flex-start;
+            border-radius: 20px 20px 20px 4px;
+            /* Sharp bottom-left */
+            background: var(--md-sys-color-surface-variant);
+            color: #f6f0f2;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: none;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: var(--md-sys-color-surface-variant);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 20px 20px 20px 4px;
+            padding: 0.55rem 0.9rem;
+            gap: 0.25rem;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--md-sys-color-on-surface-variant);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-dot:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0);
+            }
+
+            40% {
+                transform: scale(1.0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .phone-input-bar {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .phone-input {
+            flex: 1;
+            background: var(--md-sys-color-surface-variant);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            /* M3 field radius */
+            padding: 0.75rem 1rem;
+            color: #ffffff;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .phone-input:focus {
+            border-color: var(--md-sys-color-primary);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* M3 Style Floating Action Button for Send */
+        .phone-send {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--md-sys-color-primary);
+            border: none;
+            color: var(--md-sys-color-on-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phone-send:hover {
+            transform: scale(1.05);
+            background: #ffc4d5;
+            box-shadow: 0 4px 15px rgba(255, 177, 200, 0.3);
+        }
+
+        /* Interactive Connection Flow */
+        .pair-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.25rem;
+            min-height: 250px;
+            text-align: center;
+        }
+
+        .pair-code-inputs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pair-input {
+            width: 44px;
+            height: 50px;
+            background: var(--md-sys-color-surface-variant);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .pair-input:focus {
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 0 10px rgba(255, 177, 200, 0.2);
+        }
+
+        /* Material Design 3 Button with Ripple Simulation */
+        .pair-button {
+            background: var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary);
+            font-weight: 600;
+            padding: 0.8rem 2rem;
+            border-radius: 100px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 177, 200, 0.25);
+            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+            position: relative;
+            overflow: hidden;
+            font-family: var(--font-display);
+        }
+
+        .pair-button:hover {
+            transform: translateY(-2px);
+            background: #ffc4d5;
+            box-shadow: 0 8px 20px rgba(255, 177, 200, 0.35);
+        }
+
+        /* Ripple effect CSS */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.35);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 0.5s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Dynamic Heart Pulse Celebration */
+        .celebration-heart {
+            display: none;
+            font-size: 4rem;
+            color: var(--md-sys-color-primary);
+            animation: pulse 1.2s infinite ease-in-out;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px var(--md-sys-color-primary));
+            }
+
+            50% {
+                transform: scale(1.15);
+                filter: drop-shadow(0 0 20px var(--md-sys-color-primary));
+            }
+
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 5px var(--md-sys-color-primary));
+            }
+        }
+
+        /* Interactive Deletion Slider */
+        .slider-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .inactivity-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+        }
+
+        .inactivity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--md-sys-color-primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--md-sys-color-primary);
+        }
+
+        .status-display {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Category Filter */
+        .category-buttons {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-card);
+            color: var(--md-sys-color-on-surface-variant);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+            font-family: var(--font-display);
+        }
+
+        .cat-btn.active,
+        .cat-btn:hover {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            border-color: var(--md-sys-color-primary);
+            box-shadow: 0 5px 15px -5px rgba(255, 177, 200, 0.2);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            text-align: center;
+            color: var(--md-sys-color-on-surface-variant);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Grid transition */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 4.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .f-card {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .f-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        /* Large Card Segment */
+        .large-card {
+            background: rgba(37, 34, 38, 0.4);
+            border: 1px solid var(--border-card);
+            border-radius: 28px;
+            padding: 2.25rem;
+            backdrop-filter: blur(25px);
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .large-card {
+                flex-direction: row;
+                align-items: center;
+                padding: 3rem;
+            }
+
+            .large-card>div {
+                flex: 1;
+            }
+        }
+
+        .large-card h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            line-height: 1.2;
+        }
+
+        .large-card p {
+            color: var(--md-sys-color-on-surface-variant);
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #f6f0f2;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-green);
+            font-weight: bold;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        /* Responsive Label-Description Layout to fix spacing */
+        .feat-label {
+            font-weight: 700;
+            color: var(--md-sys-color-primary);
+            min-width: 140px;
+            flex-shrink: 0;
+            display: inline-block;
+        }
+
+        .feat-desc {
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        @media (max-width: 600px) {
+            .feature-list li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+
+            .feat-label {
+                min-width: auto;
+            }
+        }
+
+        /* M3 Style Mockup Container */
+        .mockup-container {
+            background: #1c1a1d;
+            border-radius: 24px;
+            border: 6px solid var(--md-sys-color-surface-variant);
+            padding: 1.25rem;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1.25rem;
+        }
+
+        .mockup-title {
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1rem;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .mockup-title span {
+            color: var(--md-sys-color-primary);
+        }
+
+        .mockup-status {
+            font-size: 0.7rem;
+            color: var(--accent-green);
+            background: rgba(52, 211, 153, 0.1);
+            padding: 0.15rem 0.4rem;
+            border-radius: 100px;
+        }
+
+        .mockup-bubble {
+            background: var(--md-sys-color-primary-container);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 0.6rem 0.85rem;
+            border-radius: 20px 20px 4px 20px;
+            max-width: 85%;
+            margin-left: auto;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        .mockup-bubble.incoming {
+            background: var(--md-sys-color-surface-variant);
+            color: #f6f0f2;
+            border-radius: 20px 20px 20px 4px;
+            margin-left: 0;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: none;
+        }
+
+        .mockup-input {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 0.5rem 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--md-sys-color-on-surface-variant);
+        }
+
+        .tag-pill {
+            background: var(--md-sys-color-primary-container);
+            border: 1px solid var(--md-sys-color-primary);
+            color: var(--md-sys-color-on-primary-container);
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--md-sys-color-on-surface-variant);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Immersive Interactive Canvas Background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="wrapper">
+
+        <!-- Header -->
+        <header>
+            <a href="#" class="logo">Couple <span>❤️</span></a>
+            <div class="badge-status">v1.0</div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-tag">A private digital room built on Material You</div>
+            <h1>Strategic Showcase & <span>Market Potential</span></h1>
+            <p>Explore the live interactive simulations below to experience the core mechanics, anonymous recovery
+                security, and design-led positioning of Couple.</p>
+        </section>
+
+        <!-- The Three WHYs of Couple -->
+        <div class="section-header">
+            <h2>The Three "WHY"s of Couple</h2>
+            <p>Understanding the design philosophies that drive our privacy architecture and market potential.</p>
+        </div>
+
+        <div class="whys-container">
+            <!-- WHY 1: Anonymity -->
+            <div class="why-card">
+                <div class="why-num">01</div>
+                <h3>Why Anonymity?</h3>
+                <p>By rejecting emails, phone numbers, and social logins, Couple eliminates the vulnerability vectors of
+                    SIM-swapping, metadata triangulation, and server leaks. A 16-word local phrase hashed via Argon2id
+                    ensures users have total cryptographic ownership over their credentials without leaving a trace.</p>
+            </div>
+            <!-- WHY 2: Relationship Lock -->
+            <div class="why-card">
+                <div class="why-num">02</div>
+                <h3>Why Relationship Lock?</h3>
+                <p>Couple rejects the social graph. By locking two profiles together under a single active ID at the
+                    database layer, it blocks spam, harassment, and third-party contact lists. It stops being a standard
+                    utility tool and instead becomes a dedicated virtual room reserved entirely for one relationship.
+                </p>
+            </div>
+            <!-- WHY 3: Auto-Deletion -->
+            <div class="why-card">
+                <div class="why-num">03</div>
+                <h3>Why Auto-Deletion?</h3>
+                <p>Absolute digital privacy requires a finite data lifecycle. Auto-deleting accounts inactive for 90
+                    days prevents stale metadata reservoirs from existing indefinitely. If a couple steps away, their
+                    entire shared room, E2EE keys, and history dissolve automatically, leaving a zero-footprint trace.
+                </p>
+            </div>
+        </div>
+
+        <!-- Part 1: Interactive Showcases -->
+        <div class="interactive-grid">
+
+            <!-- Interactive Simulator 1: The Chat Workspace -->
+            <div class="sim-card">
+                <div class="sim-header">
+                    <div class="sim-icon">💬</div>
+                    <div class="sim-title">
+                        <h3>M3 Workspace Simulator</h3>
+                        <p>Simulating E2EE messaging and custom Material You UX layouts</p>
+                    </div>
+                </div>
+
+                <div class="phone-frame">
+                    <div class="phone-header">
+                        <div class="phone-user">
+                            <div class="phone-avatar">B</div>
+                            <div class="phone-info">
+                                <h4>Partner B</h4>
+                                <p>● Online <span>❤️</span></p>
+                            </div>
+                        </div>
+                        <div style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant);">Verified</div>
+                    </div>
+
+                    <div class="phone-messages" id="chatArea">
+                        <div class="msg-bubble incoming">
+                            Hey! Did you write down the 16-word recovery phrase offline?
+                        </div>
+                        <div class="msg-bubble">
+                            Yes, kept safely. Hashed with Argon2id on the backend! 🔒
+                        </div>
+                    </div>
+
+                    <!-- Typing dot indicator -->
+                    <div class="typing-indicator" id="typingIndicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+
+                    <div class="phone-input-bar">
+                        <input type="text" class="phone-input" id="chatInput" placeholder="Type private message..."
+                            autocomplete="off">
+                        <button class="phone-send" id="btnSend">✓</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Simulator 2: The Pairing Flow & Deletion Tracker -->
+            <div class="sim-card" style="justify-content: space-between;">
+
+                <!-- Couple pairing simulator -->
+                <div>
+                    <div class="sim-header" style="margin-bottom: 1rem;">
+                        <div class="sim-icon">🔗</div>
+                        <div class="sim-title">
+                            <h3>Couple Connection Simulator</h3>
+                            <p>Verify relationship lock pairing mechanics</p>
+                        </div>
+                    </div>
+
+                    <div class="pair-screen" id="pairScreen">
+                        <p style="font-size: 0.9rem; color: var(--md-sys-color-on-surface-variant);">Enter the ephemeral
+                            6-digit couple code</p>
+                        <div class="pair-code-inputs">
+                            <input type="text" class="pair-input" maxlength="1" value="1">
+                            <input type="text" class="pair-input" maxlength="1" value="2">
+                            <input type="text" class="pair-input" maxlength="1" value="3">
+                            <input type="text" class="pair-input" maxlength="1" value="4">
+                            <input type="text" class="pair-input" maxlength="1" value="5">
+                            <input type="text" class="pair-input" maxlength="1" value="6">
+                        </div>
+                        <button class="pair-button" id="btnPair">Connect Partners</button>
+                    </div>
+
+                    <div class="pair-screen" id="successScreen" style="display: none;">
+                        <div class="celebration-heart" id="celebHeart">❤️</div>
+                        <h3 style="font-family: var(--font-display); color: #ffffff;">Connection Established!</h3>
+                        <p
+                            style="color: var(--md-sys-color-primary); font-weight: bold; font-size: 1.1rem; margin-top: 0.5rem;">
+                            Partner A ❤️ Partner B</p>
+                        <p
+                            style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.25rem;">
+                            Relationship Locked. Chat Workspace Unlocked.</p>
+                        <button class="pair-button" id="btnResetPair"
+                            style="margin-top: 1rem; background: rgba(255, 255, 255, 0.05); color: white; box-shadow: none;">Reset
+                            Connection</button>
+                    </div>
+                </div>
+
+                <!-- Account deletion slider -->
+                <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.5rem; margin-top: 1.5rem;">
+                    <div class="sim-header" style="margin-bottom: 1rem; border-bottom: none; padding-bottom: 0;">
+                        <div class="sim-icon">⏳</div>
+                        <div class="sim-title">
+                            <h3>90-Day Account Deletion Tracker</h3>
+                            <p>Drag slider to test inactivity auto-purge lifecycle</p>
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <input type="range" min="0" max="100" value="15" class="inactivity-slider" id="daysSlider">
+
+                        <div class="status-display">
+                            <div class="status-badge" id="daysBadge">ACTIVE</div>
+                            <h4 id="daysText" style="font-size: 1rem; color: white;">Days Inactive: 15 days</h4>
+                            <p id="expiryDesc"
+                                style="font-size: 0.8rem; color: var(--md-sys-color-on-surface-variant); margin-top: 0.25rem;">
+                                Account remains active. Deletes in 75 days.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Part 2: Categorized A-Z Features Matrix -->
+        <div class="section-header">
+            <h2>The A-to-R Features Matrix</h2>
+            <p>Filter or search features dynamically to understand the full architectural scope of Couple.</p>
+        </div>
+
+        <!-- Dynamic Category buttons -->
+        <div class="category-buttons">
+            <button class="cat-btn active" onclick="filterFeatures('all')">Show All</button>
+            <button class="cat-btn" onclick="filterFeatures('auth')">Auth & Recovery</button>
+            <button class="cat-btn" onclick="filterFeatures('security')">Security & Lock</button>
+            <button class="cat-btn" onclick="filterFeatures('ux')">Material UX</button>
+            <button class="cat-btn" onclick="filterFeatures('life')">Account Lifecycle</button>
+        </div>
+
+        <!-- Dynamic cards grid -->
+        <div class="feature-grid" id="featureGrid">
+            <!-- Card -->
+            <div class="card f-card" data-category="auth">
+                <h3>A. Anonymous Sign-Up</h3>
+                <p>Register with only Username + Password. Avoids phone, email, and social login hooks to prevent
+                    location metadata harvesting.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="auth">
+                <h3>B. 16-Word Recovery Seed</h3>
+                <p>Generates a bip39-standard recovery seed displayed only once on account registration. Essential for
+                    offline backups.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="auth">
+                <h3>C. Argon2id Hash Storage</h3>
+                <p>Plaintext seeds are never stored or transmitted. The server saves only the Argon2id key-derivative
+                    hash for recovery matching.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="security">
+                <h3>D. Couple Code Connection</h3>
+                <p>Pairs partners via an ephemeral 6-digit verification code. Bypasses public indexing, search inputs,
+                    or username queries.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="security">
+                <h3>E. Relationship Lock</h3>
+                <p>Restricts conversation participation using PostgreSQL database constraints. Enforces a maximum
+                    participant count of 2 per user.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>F. Single Chat Workspace</h3>
+                <p>Removes navigation boards, chat list panels, and contacts grids. Authenticating leads directly into
+                    the active conversation.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="security">
+                <h3>G. E2EE Double Ratchet</h3>
+                <p>Client-side cryptographic keys derived from an ephemeral X3DH handshake ensure all messages are
+                    private before transit.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>H. Presence & Typing</h3>
+                <p>Monitors online connectivity states and typing indicators in real time using Supabase Realtime
+                    Broadcast pipelines.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>I. Ticks & Read Status</h3>
+                <p>M3 style ticks: 1 tick represents sent status, 2 ticks delivered status, and colored ticks read
+                    status.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>J. Asymmetric Corners</h3>
+                <p>Custom M3 bubble design where incoming bubbles have a sharp bottom-left corner and outgoing bubbles
+                    have a sharp bottom-right corner.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>K. Swipe Actions</h3>
+                <p>Drag messages with haptic interpolation triggers to access quick reply configurations.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>L. Long-Press Bottom Sheet</h3>
+                <p>Triggers Copy, Edit, Reply, and Delete actions underneath a dynamic Material You reactions sheet.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>M. Material Motion</h3>
+                <p>Every dynamic element leverages custom 300ms spring physics animations and ink-ripple overlay
+                    feedback.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="security">
+                <h3>N. Client-Encrypted Media</h3>
+                <p>Uploads chat media to ImgBB via API, but stores links within client-encrypted payloads. The server
+                    only sees ciphertext links.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="security">
+                <h3>O. Device Session List</h3>
+                <p>Displays current active sessions containing country, browser name, and last active timestamp.
+                    Excludes IP tracking.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="life">
+                <h3>P. 90-Day Auto-Deletion</h3>
+                <p>Monitors login activity. Inactivity past 90 consecutive days triggers a complete account/message
+                    cascade wipe.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="life">
+                <h3>Q. Couple Dissolution Flow</h3>
+                <p>Disconnecting requires dual confirmation and enters a 24-hour cooling-off state before unlinking.</p>
+            </div>
+            <!-- Card -->
+            <div class="card f-card" data-category="ux">
+                <h3>R. Dynamic Adaptive Palette</h3>
+                <p>Responsive Flutter layout dynamic color system adapting to system wallpaper accents automatically.
+                </p>
+            </div>
+        </div>
+
+        <!-- Part 3: The Design Experience (Mockup Detail) -->
+        <div class="large-card">
+            <div>
+                <span class="tag-pill">INTERACTION FLOW</span>
+                <h2>Material You, for Two People Only.</h2>
+                <p>The workspace interface scales layout components from mobile viewports to widescreen desktops
+                    seamlessly:</p>
+                <ul class="feature-list" style="margin-bottom: 1.5rem;">
+                    <li>
+                        <span class="feat-label">Header Badge:</span>
+                        <span class="feat-desc">Displays the status (e.g., "Partner A ❤️ Partner B (Verified
+                            Couple)").</span>
+                    </li>
+                    <li>
+                        <span class="feat-label">Zero Navigation:</span>
+                        <span class="feat-desc">Sidebars and bottom tabs are eliminated. The chat window is the home
+                            workspace.</span>
+                    </li>
+                    <li>
+                        <span class="feat-label">Material Motion:</span>
+                        <span class="feat-desc">Custom transitions ensure no rigid cuts when opening detailed
+                            overlays.</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div class="mockup-container">
+                    <div class="mockup-header">
+                        <div class="mockup-title">Partner A <span>❤️</span> Partner B</div>
+                        <div class="mockup-status">Verified</div>
+                    </div>
+                    <div class="mockup-bubble incoming">
+                        Did you copy down the 16-word phrase?
+                    </div>
+                    <div class="mockup-bubble">
+                        Yes, secure and off-grid. 🔒
+                    </div>
+                    <div class="mockup-input">
+                        <span>Message...</span>
+                        <span>📎</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 Couple Inc. Built for Anonymity, Intimacy, and Custom Material You Performance.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripting for Interactive Elements & Canvas background -->
+    <script>
+        // High fidelity interactive canvas animation background
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Interactive particle classes
+        class OrganicBlob {
+            constructor(x, y, radius, color, speedX, speedY) {
+                this.x = x;
+                this.y = y;
+                this.radius = radius;
+                this.color = color;
+                this.vx = speedX;
+                this.vy = speedY;
+                this.angle = Math.random() * Math.PI * 2;
+                this.angleSpeed = 0.002 + Math.random() * 0.003;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.angle += this.angleSpeed;
+
+                // Bounce from boundaries
+                if (this.x - this.radius < 0 || this.x + this.radius > width) this.vx *= -1;
+                if (this.y - this.radius < 0 || this.y + this.radius > height) this.vy *= -1;
+            }
+
+            draw() {
+                // Morphing shape using dynamic radius calculations
+                ctx.save();
+                ctx.beginPath();
+
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                grad.addColorStop(0, this.color);
+                grad.addColorStop(1, 'rgba(15, 10, 21, 0)');
+
+                ctx.fillStyle = grad;
+
+                // Draw slightly warped circle for organic feel
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class LoveParticle {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = height + 20;
+                this.size = Math.random() * 6 + 2;
+                this.speedY = -(Math.random() * 1.5 + 0.5);
+                this.speedX = Math.random() * 0.6 - 0.3;
+                this.alpha = Math.random() * 0.5 + 0.2;
+                this.color = Math.random() > 0.5 ? '255, 177, 200' : '168, 85, 247'; // Pink or purple
+            }
+
+            update(mouseX, mouseY) {
+                this.y += this.speedY;
+                this.x += this.speedX;
+
+                // Gravitational pull to mouse if close
+                if (mouseX !== undefined && mouseY !== undefined) {
+                    const dx = mouseX - this.x;
+                    const dy = mouseY - this.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 180) {
+                        this.x += (dx / dist) * 0.8;
+                        this.y += (dy / dist) * 0.8;
+                    }
+                }
+
+                if (this.y < -20 || this.x < -20 || this.x > width + 20) {
+                    this.reset();
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+                ctx.fill();
+            }
+        }
+
+        // Initialize background objects
+        const blobs = [
+            new OrganicBlob(width * 0.2, height * 0.3, 250, 'rgba(255, 177, 200, 0.08)', 0.2, 0.15),
+            new OrganicBlob(width * 0.8, height * 0.6, 300, 'rgba(141, 0, 67, 0.08)', -0.15, -0.2),
+            new OrganicBlob(width * 0.5, height * 0.8, 200, 'rgba(168, 85, 247, 0.06)', 0.1, -0.15)
+        ];
+
+        const particles = [];
+        for (let i = 0; i < 40; i++) {
+            particles.push(new LoveParticle());
+        }
+
+        // Mouse coordination
+        let mouseX, mouseY;
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Animation Loop
+        function animate() {
+            ctx.fillStyle = '#100b16';
+            ctx.fillRect(0, 0, width, height);
+
+            blobs.forEach(blob => {
+                blob.update();
+                blob.draw();
+            });
+
+            particles.forEach(p => {
+                p.update(mouseX, mouseY);
+                p.draw();
+            });
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Custom M3 Material Ripple Effect on Click
+        document.querySelectorAll('.pair-button, .phone-send, .cat-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            });
+        });
+
+        // Chat Simulator Logic
+        const chatInput = document.getElementById('chatInput');
+        const btnSend = document.getElementById('btnSend');
+        const chatArea = document.getElementById('chatArea');
+        const typingIndicator = document.getElementById('typingIndicator');
+
+        const botResponses = [
+            "Nice custom bubbles! Asymmetric corners look so good.",
+            "I love the dynamic theming on the page. ❤️",
+            "This M3 design is way better than typical apps.",
+            "Material ripple is very smooth.",
+            "We are completely locked. No database leaks possible!"
+        ];
+        let botIndex = 0;
+
+        function sendMessage() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // Create user message bubble
+            const userBubble = document.createElement('div');
+            userBubble.classList.add('msg-bubble');
+            userBubble.innerText = text;
+            chatArea.appendChild(userBubble);
+            chatInput.value = '';
+
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            // Trigger typing response
+            setTimeout(() => {
+                typingIndicator.style.display = 'flex';
+                chatArea.scrollTop = chatArea.scrollHeight;
+
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    const botBubble = document.createElement('div');
+                    botBubble.classList.add('msg-bubble', 'incoming');
+                    botBubble.innerText = botResponses[botIndex];
+                    chatArea.appendChild(botBubble);
+
+                    botIndex = (botIndex + 1) % botResponses.length;
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                }, 1500);
+            }, 500);
+        }
+
+        btnSend.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        // Pairing Simulator Logic
+        const btnPair = document.getElementById('btnPair');
+        const pairScreen = document.getElementById('pairScreen');
+        const successScreen = document.getElementById('successScreen');
+        const btnResetPair = document.getElementById('btnResetPair');
+
+        btnPair.addEventListener('click', () => {
+            pairScreen.style.display = 'none';
+            successScreen.style.display = 'flex';
+        });
+
+        btnResetPair.addEventListener('click', () => {
+            successScreen.style.display = 'none';
+            pairScreen.style.display = 'flex';
+        });
+
+        // Deletion tracker slider
+        const daysSlider = document.getElementById('daysSlider');
+        const daysBadge = document.getElementById('daysBadge');
+        const daysText = document.getElementById('daysText');
+        const expiryDesc = document.getElementById('expiryDesc');
+
+        daysSlider.addEventListener('input', () => {
+            const val = parseInt(daysSlider.value);
+            daysText.innerText = `Days Inactive: ${val} days`;
+
+            if (val < 90) {
+                daysBadge.innerText = 'ACTIVE';
+                daysBadge.style.background = 'rgba(52, 211, 153, 0.1)';
+                daysBadge.style.color = 'var(--accent-green)';
+                daysBadge.style.border = '1px solid rgba(52, 211, 153, 0.2)';
+                expiryDesc.innerText = `Account remains active. Deletes in ${90 - val} days.`;
+            } else if (val >= 90 && val < 97) {
+                daysBadge.innerText = 'PENDING DELETION';
+                daysBadge.style.background = 'rgba(245, 158, 11, 0.1)';
+                daysBadge.style.color = 'var(--accent-gold)';
+                daysBadge.style.border = '1px solid rgba(245, 158, 11, 0.2)';
+                expiryDesc.innerText = `Warning! Deletion Grace Period: ${97 - val} days remaining.`;
+            } else {
+                daysBadge.innerText = 'TERMINATED & PURGED';
+                daysBadge.style.background = 'rgba(255, 62, 108, 0.1)';
+                daysBadge.style.color = '#ff3e6c';
+                daysBadge.style.border = '1px solid rgba(255, 62, 108, 0.2)';
+                expiryDesc.innerText = 'All messages, E2EE keys, and profiles permanently erased.';
+            }
+        });
+
+        // Category filtration logic
+        function filterFeatures(category) {
+            const buttons = document.querySelectorAll('.cat-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const cards = document.querySelectorAll('.f-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

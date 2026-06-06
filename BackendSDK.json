@@ -1,0 +1,24 @@
+{
+  "supabase": {
+    "api_endpoint": "process.env.SUPABASE_API_ENDPOINT",
+    "publishable_key": "process.env.SUPABASE_PUBLISHABLE_KEY",
+    "secret_key": "process.env.SUPABASE_SECRET_KEY",
+    "legacy_jwt_secret": "process.env.SUPABASE_JWT_SECRET",
+    "storage": {
+      "endpoint": "process.env.SUPABASE_STORAGE_ENDPOINT",
+      "access_key_id": "process.env.SUPABASE_STORAGE_ACCESS_KEY",
+      "secret_access_key": "process.env.SUPABASE_STORAGE_SECRET_KEY"
+    },
+    "anon_public_key": "process.env.SUPABASE_ANON_PUBLIC_KEY",
+    "service_role_key": "process.env.SUPABASE_SERVICE_ROLE_KEY"
+  },
+  "imagekit": {
+    "url_endpoint": "process.env.IMAGEKIT_URL_ENDPOINT",
+    "public_key": "process.env.IMAGEKIT_PUBLIC_KEY",
+    "private_key": "process.env.IMAGEKIT_PRIVATE_KEY"
+  },
+  "imgbb": {
+    "endpoint": "process.env.IMGBB_ENDPOINT",
+    "api_key": "process.env.IMGBB_API_KEY"
+  }
+}
