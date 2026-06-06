@@ -41,11 +41,11 @@ The app features a stunning dynamic palette (Material You) with custom themes:
 
 Before setting up the project, ensure you have the following installed on your system:
 
+- **[Git](https://git-scm.com/downloads)**
+- **[Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)**
 - **[Flutter SDK](https://docs.flutter.dev/install/manual)**
 - **[Android Studio](https://developer.android.com/studio)** (Includes Android SDK Tools)
 - **[Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)** (Required for Windows SDK Tools & C++ development)
-- **[Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)**
-- **[Git](https://git-scm.com/downloads)**
 - **[Visual Studio Code](https://code.visualstudio.com/)** (Recommended IDE)
 
 ## 🚀 Getting Started for Contributors
