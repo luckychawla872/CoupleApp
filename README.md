@@ -37,6 +37,16 @@ The app features a stunning dynamic palette (Material You) with custom themes:
 - **Dark Theme**: Soft Rose Gold (`#ffb1c8`) & Deep warm dark burgundy backgrounds
 - **Fluid Animations**: Custom ink ripple effects, spring-based interpolations, asymmetric chat bubbles, and shared axis transitions create a modern, premium feel.
 
+## 🛠️ Prerequisites for Development
+
+Before setting up the project, ensure you have the following installed on your system:
+
+- **Flutter SDK**
+- **Android SDK Tools** (via Android Studio)
+- **Windows SDK Tools** (C++ development only, via Visual Studio Community)
+- **Java 17**
+- **Visual Studio Code** (VS Code)
+
 ## 🚀 Getting Started for Contributors
 
 This project is a Flutter application. To run or contribute to this project:
