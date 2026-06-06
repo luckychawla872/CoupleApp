@@ -46,7 +46,9 @@ Before setting up the project, ensure you have the following installed on your s
 - **[Flutter SDK](https://docs.flutter.dev/install/manual)**
 - **[Android Studio](https://developer.android.com/studio)** (Includes Android SDK Tools)
 - **[Visual Studio Community](https://visualstudio.microsoft.com/vs/community/)** (Required for Windows SDK Tools & C++ development)
-- **[Visual Studio Code](https://code.visualstudio.com/)** (Recommended IDE)
+- **[Visual Studio Code](https://code.visualstudio.com/)** 
+     or
+  **[Antigravity IDE](https://antigravity.google/product/antigravity-ide)** (Recommended IDE)
 
 ## 🚀 Getting Started for Contributors
 
